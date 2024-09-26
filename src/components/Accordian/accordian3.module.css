@@ -1,0 +1,42 @@
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title::after {
+  content: "\25BC";
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+details[open] .title {
+  background-color: gainsboro;
+  color: black;
+}
+
+details[open] .title::after {
+  transform: rotate(180deg);
+}
+
+.desc {
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  color: #495057;
+  border-bottom: 1px solid #e9ecef;
+  line-height: 1.6;
+}

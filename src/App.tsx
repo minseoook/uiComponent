@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./layout/Layout";
 import Home from "./pages/Home";
 import AccordianPage from "./pages/AccordianPage";
+import TabsPage from "./pages/TabsPage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -22,6 +23,16 @@ const App = () => {
         {
           path: "/1",
           element: <AccordianPage />,
+        },
+      ],
+    },
+    {
+      path: "/11",
+      element: <Layout />,
+      children: [
+        {
+          path: "/11",
+          element: <TabsPage />,
         },
       ],
     },
