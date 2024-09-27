@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import AccordianPage from "./pages/AccordianPage";
 import TabsPage from "./pages/TabsPage";
 import TooltipPage from "./pages/TooltipPage";
+import LazyLoadingPage from "./pages/LazyLoadingPage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -44,6 +45,16 @@ const App = () => {
         {
           path: "/13",
           element: <TooltipPage />,
+        },
+      ],
+    },
+    {
+      path: "/3",
+      element: <Layout />,
+      children: [
+        {
+          path: "/3",
+          element: <LazyLoadingPage />,
         },
       ],
     },
