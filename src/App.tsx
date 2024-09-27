@@ -5,6 +5,7 @@ import AccordianPage from "./pages/AccordianPage";
 import TabsPage from "./pages/TabsPage";
 import TooltipPage from "./pages/TooltipPage";
 import LazyLoadingPage from "./pages/LazyLoadingPage";
+import InfiniteScrollPage from "./pages/infiniteScrollPage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -55,6 +56,16 @@ const App = () => {
         {
           path: "/3",
           element: <LazyLoadingPage />,
+        },
+      ],
+    },
+    {
+      path: "/6",
+      element: <Layout />,
+      children: [
+        {
+          path: "/6",
+          element: <InfiniteScrollPage />,
         },
       ],
     },
