@@ -6,6 +6,8 @@ import TabsPage from "./pages/TabsPage";
 import TooltipPage from "./pages/TooltipPage";
 import LazyLoadingPage from "./pages/LazyLoadingPage";
 import InfiniteScrollPage from "./pages/infiniteScrollPage";
+import ToastPage from "./pages/ToastPage";
+import PopoverPage from "./pages/PopoverPage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -66,6 +68,26 @@ const App = () => {
         {
           path: "/6",
           element: <InfiniteScrollPage />,
+        },
+      ],
+    },
+    {
+      path: "/12",
+      element: <Layout />,
+      children: [
+        {
+          path: "/12",
+          element: <ToastPage />,
+        },
+      ],
+    },
+    {
+      path: "/14",
+      element: <Layout />,
+      children: [
+        {
+          path: "/14",
+          element: <PopoverPage />,
         },
       ],
     },
