@@ -1,8 +1,4 @@
 .popoverContainer {
-  position: absolute; /* 포지션을 절대 위치로 설정 */
-  top: 55%; /* 화면 중앙에 위치하도록 설정 */
-  left: 50%;
-  transform: translate(-50%, -50%); /* 중앙 정렬 */
   background-color: white; /* 배경색 */
   border: 1px solid #ccc; /* 테두리 색상 */
   z-index: 1000; /* 다른 요소 위에 표시 */
