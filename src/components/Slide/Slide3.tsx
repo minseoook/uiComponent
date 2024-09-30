@@ -1,20 +1,21 @@
-import { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styled from "./slide2.module.css";
 
 const imageUrls: string[] = Array.from(
-  { length: 20 },
+  { length: 20 }, // 이미지 개수
   (_, index) => `https://picsum.photos/200/300?random=${index}`
 );
 
-const imagesPerPage = 4;
+const imagesPerPage = 4; // 한 페이지에 보여줄 이미지 수
 
-const Slide2 = () => {
+const Slide2: React.FC = () => {
   const [images, setImages] = useState<string[]>([]);
   const [currentIndex, setCurrentIndex] = useState(imagesPerPage);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const sliderRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
+    // 이미지 배열 앞뒤로 복제
     setImages([
       ...imageUrls.slice(-imagesPerPage),
       ...imageUrls,
