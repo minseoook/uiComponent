@@ -1,0 +1,44 @@
+/* slide1.module.css */
+.container {
+  width: 1000px;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.imgContainer {
+  display: flex;
+  transition: transform 0.5s ease; /* 슬라이드 애니메이션 */
+  width: 1000px; /* 고정된 너비 */
+}
+
+.imgs {
+  width: 1000px; /* 고정된 부모 너비 */
+  height: 400px;
+  flex-shrink: 0; /* 크기를 줄이지 않도록 설정 */
+}
+
+.img {
+  width: 100%; /* 부모 너비를 상속 */
+  height: 100%; /* 부모 높이를 상속 */
+  object-fit: cover;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.navLeft {
+  left: 10px;
+}
+
+.navRight {
+  right: 10px;
+}
