@@ -14,6 +14,8 @@ import tab from "../assets/탭메뉴.png";
 import toast from "../assets/토스트.png";
 import tooltip from "../assets/툴팁.png";
 import popover from "../assets/팝오버.png";
+import dropdown from "../assets/드랍다운.png";
+import dnd from "../assets/DnD.png";
 
 const uiComponentsData = [
   {
@@ -98,6 +100,16 @@ const uiComponentsData = [
     title: "팝오버",
     description:
       "클릭하면 추가 정보나 관련 작업을 보여주는 작은 오버레이 컴포넌트입니다.",
+  },
+  {
+    imageUrl: dropdown,
+    title: "드랍다운",
+    description: "클릭하면 아래에 다양한 리스트를 보여주는 컴포넌트입니다.",
+  },
+  {
+    imageUrl: dnd,
+    title: "드래그앤드랍",
+    description: "드래그앤드랍 컴포넌트입니다.",
   },
 ];
 

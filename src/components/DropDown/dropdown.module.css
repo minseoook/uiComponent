@@ -1,0 +1,77 @@
+.dropdown {
+  position: relative;
+  width: 200px;
+  font-family: Arial, sans-serif;
+}
+
+.buttonToggle {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.buttonToggle:hover {
+  background-color: #e9ecef;
+}
+
+.buttonToggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.buttonToggle::after {
+  content: "\25BC";
+  font-size: 0.7em;
+  color: #6c757d;
+}
+
+.text {
+  font-size: 14px;
+  color: #495057;
+}
+
+.dropdownList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.item {
+  padding: 0;
+}
+
+.item button {
+  width: 100%;
+  padding: 10px 15px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.item button:hover {
+  background-color: #f1f3f5;
+}
+
+.item:not(:last-child) {
+  border-bottom: 1px solid #e9ecef;
+}

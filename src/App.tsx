@@ -9,6 +9,7 @@ import InfiniteScrollPage from "./pages/infiniteScrollPage";
 import ToastPage from "./pages/ToastPage";
 import PopoverPage from "./pages/PopoverPage";
 import SlidePage from "./pages/SlidePage";
+import DropdownPage from "./pages/DropdownPage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -99,6 +100,16 @@ const App = () => {
         {
           path: "/10",
           element: <SlidePage />,
+        },
+      ],
+    },
+    {
+      path: "/15",
+      element: <Layout />,
+      children: [
+        {
+          path: "/15",
+          element: <DropdownPage />,
         },
       ],
     },
