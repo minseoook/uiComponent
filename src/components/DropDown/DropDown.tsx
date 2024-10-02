@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import styles from "./Dropdown.module.css";
 import { data } from "./data";
 
@@ -73,7 +73,32 @@ const DropdownList = () => {
 };
 
 const DropdownContainer = ({ children }: { children: ReactNode }) => {
-  return <div className={styles.dropdown}>{children}</div>;
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const { isOpen, toggle } = useDropdownStore();
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (!isOpen) return;
+
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        toggle();
+      }
+    };
+
+    window.addEventListener("click", handleClick);
+
+    return () => {
+      window.removeEventListener("click", handleClick);
+    };
+  }, [isOpen, toggle]);
+
+  return (
+    <div ref={dropdownRef} className={styles.dropdown}>
+      {children}
+    </div>
+  );
 };
 
 const Dropdown = {
