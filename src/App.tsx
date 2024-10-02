@@ -10,6 +10,7 @@ import ToastPage from "./pages/ToastPage";
 import PopoverPage from "./pages/PopoverPage";
 import SlidePage from "./pages/SlidePage";
 import DropdownPage from "./pages/DropdownPage";
+import AutoCompletePage from "./pages/AutoCompletePage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -110,6 +111,16 @@ const App = () => {
         {
           path: "/15",
           element: <DropdownPage />,
+        },
+      ],
+    },
+    {
+      path: "/9",
+      element: <Layout />,
+      children: [
+        {
+          path: "/9",
+          element: <AutoCompletePage />,
         },
       ],
     },
