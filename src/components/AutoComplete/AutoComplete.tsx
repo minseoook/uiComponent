@@ -65,7 +65,7 @@ export const DropdownTrigger = ({
     setvaluedebounce(e.target.value);
     setTimeout(() => {
       setValue(e.target.value);
-    }, 3000);
+    }, 300);
   };
   return (
     <input

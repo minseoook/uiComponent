@@ -1,0 +1,73 @@
+/* 컨테이너 스타일링 */
+.dropdown {
+  position: relative;
+  width: 300px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+/* 입력 필드 스타일 */
+.buttonToggle {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease-in-out;
+}
+
+.buttonToggle:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+/* 드롭다운 목록 스타일 */
+.dropdownList {
+  position: absolute;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 0;
+  margin: 5px 0 0 0;
+}
+
+/* 드롭다운 항목 스타일 */
+.item {
+  list-style-type: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.item:hover {
+  background-color: #f0f0f0;
+}
+
+.item button {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.item button:hover {
+  color: #007bff;
+}
+
+/* 드롭다운 항목 활성화 상태 스타일 */
+.item:active,
+.item button:active {
+  background-color: #e0e0e0;
+  color: #007bff;
+}
