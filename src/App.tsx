@@ -11,6 +11,7 @@ import PopoverPage from "./pages/PopoverPage";
 import SlidePage from "./pages/SlidePage";
 import DropdownPage from "./pages/DropdownPage";
 import AutoCompletePage from "./pages/AutoCompletePage";
+import ModalPage from "./pages/ModalPage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -121,6 +122,16 @@ const App = () => {
         {
           path: "/9",
           element: <AutoCompletePage />,
+        },
+      ],
+    },
+    {
+      path: "/5",
+      element: <Layout />,
+      children: [
+        {
+          path: "/5",
+          element: <ModalPage />,
         },
       ],
     },

@@ -1,0 +1,16 @@
+.loginForm {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.loginInput {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.loginButton {
+  background-color: #28a745;
+}
