@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 
 const useIntersectionObserver = () => {
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const ref = useRef<HTMLImageElement | null>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -20,7 +20,7 @@ const useIntersectionObserver = () => {
     }
 
     return () => {
-      if (ref.current) observer.disconnect();
+      if (ref.current) observer.unobserve(ref.current);
     };
   }, []);
 
