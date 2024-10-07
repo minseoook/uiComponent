@@ -29,48 +29,42 @@ const Popover2 = ({
     }
   }, [anchorEl]);
 
-  const popoverContent = (
-    <div
-      className={styles.popoverContainer}
-      ref={popoverRef}
-      style={{
-        top: `${position.top}px`,
-        left: `${position.left}px`,
-        position: "absolute",
-        visibility: isPositioned ? "visible" : "hidden", // 위치 설정 전까지 숨김
-      }}
-    >
-      <ul className={styles.popoverList}>
-        <li className={styles.popoverItem}>
-          <button className={styles.popoverButton}>
-            <span className={styles.icon}>➕</span> 추가
-          </button>
-        </li>
-        <li className={styles.popoverItem}>
-          <button className={styles.popoverButton}>
-            <span className={styles.icon}>🗑️</span> 삭제
-          </button>
-        </li>
-        <li className={styles.popoverItem}>
-          <button className={styles.popoverButton}>
-            <span className={styles.icon}>✏️</span> 수정
-          </button>
-        </li>
-        <li className={styles.popoverItem}>
-          <button className={styles.popoverButton}>
-            <span className={styles.icon}>💾</span> 저장
-          </button>
-        </li>
-      </ul>
-    </div>
-  );
-
-  const dimmedBackground = <div className={styles.dimmed} onClick={onClose} />;
-
   return ReactDOM.createPortal(
     <>
-      {dimmedBackground}
-      {popoverContent}
+      <div className={styles.dimmed} onClick={onClose} />
+      <div
+        className={styles.popoverContainer}
+        ref={popoverRef}
+        style={{
+          top: `${position.top}px`,
+          left: `${position.left}px`,
+          position: "absolute",
+          visibility: isPositioned ? "visible" : "hidden", // 위치 설정 전까지 숨김
+        }}
+      >
+        <ul className={styles.popoverList}>
+          <li className={styles.popoverItem}>
+            <button className={styles.popoverButton}>
+              <span className={styles.icon}>➕</span> 추가
+            </button>
+          </li>
+          <li className={styles.popoverItem}>
+            <button className={styles.popoverButton}>
+              <span className={styles.icon}>🗑️</span> 삭제
+            </button>
+          </li>
+          <li className={styles.popoverItem}>
+            <button className={styles.popoverButton}>
+              <span className={styles.icon}>✏️</span> 수정
+            </button>
+          </li>
+          <li className={styles.popoverItem}>
+            <button className={styles.popoverButton}>
+              <span className={styles.icon}>💾</span> 저장
+            </button>
+          </li>
+        </ul>
+      </div>
     </>,
     document.getElementById("popover-root") as HTMLElement
   );
