@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { tabsData } from "./data";
 import styled from "./tab1.module.css";
+import { useTabs } from "./useTabs";
 
-const Tab1 = () => {
-  const [index, setindex] = useState(tabsData[0].id);
+const Tab2 = () => {
+  const { index, selectvalue, handleClick } = useTabs();
   const [value, setValue] = useState("");
   const [value2, setValue2] = useState("");
-  const selectvalue = tabsData.find((tab) => tab.id === index);
-  const handleClick = (id: number) => {
+
+  const handleClick2 = (id: number) => {
     setValue("");
     setValue2("");
-    setindex(id);
+    handleClick(id);
   };
   return (
     <div className={styled.container}>
@@ -18,7 +19,7 @@ const Tab1 = () => {
         {tabsData.map((tab) => (
           <div
             className={`${styled.tab} ${index === tab.id && styled.active}`}
-            onClick={() => handleClick(tab.id)}
+            onClick={() => handleClick2(tab.id)}
           >
             {tab.title}
           </div>
@@ -45,4 +46,4 @@ const Tab1 = () => {
   );
 };
 
-export default Tab1;
+export default Tab2;
