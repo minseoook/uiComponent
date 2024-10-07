@@ -1,14 +1,14 @@
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import styled from "./slide2.module.css";
 
 const imageUrls: string[] = Array.from(
-  { length: 20 }, // 이미지 개수
+  { length: 20 },
   (_, index) => `https://picsum.photos/200/300?random=${index}`
 );
 
-const imagesPerPage = 4; // 한 페이지에 보여줄 이미지 수
+const imagesPerPage = 4;
 
-const Slide2: React.FC = () => {
+const Slide3 = () => {
   const [images, setImages] = useState<string[]>([]);
   const [currentIndex, setCurrentIndex] = useState(imagesPerPage);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -75,4 +75,4 @@ const Slide2: React.FC = () => {
   );
 };
 
-export default Slide2;
+export default Slide3;

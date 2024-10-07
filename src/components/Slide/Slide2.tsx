@@ -1,4 +1,3 @@
-// Slide1.js
 import { useRef, useState } from "react";
 import styled from "./slide2.module.css";
 
