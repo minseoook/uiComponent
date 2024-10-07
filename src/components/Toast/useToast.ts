@@ -1,8 +1,7 @@
-// useSnackbar.ts
 import { useState } from "react";
 import { ReactNode } from "react";
 
-export type Snackbar = {
+export type Toast = {
   id: string;
   children: ReactNode;
   isOpen: boolean;
@@ -10,47 +9,44 @@ export type Snackbar = {
 };
 
 const useToast = () => {
-  const [snackbars, setSnackbars] = useState<Snackbar[]>([]);
+  const [toasts, setToasts] = useState<Toast[]>([]);
 
-  const upsertSnackbar = (newSnackbar: Snackbar) => {
-    setSnackbars((prev) => {
-      const targetIndex = prev.findIndex((item) => item.id === newSnackbar.id);
+  const upsertToast = (newToast: Toast) => {
+    setToasts((prev) => {
+      const targetIndex = prev.findIndex((item) => item.id === newToast.id);
       if (targetIndex > -1) {
-        // 기존의 스낵바를 업데이트
         return prev.map((item, index) =>
-          index === targetIndex ? { ...item, ...newSnackbar } : item
+          index === targetIndex ? { ...item, ...newToast } : item
         );
       }
-      // 새로운 스낵바 추가
-      return [...prev, newSnackbar];
+      return [...prev, newToast];
     });
   };
 
-  const removeSnackbar = (id: string) => {
-    console.log(`r2 snackbar with id: ${id}`);
-    setSnackbars((prev) => prev.filter((item) => item.id !== id));
+  const removeToast = (id: string) => {
+    setToasts((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const createSnackbar = (children: ReactNode) => {
+  const createToast = (children: ReactNode) => {
     const id = Date.now().toString();
     const timeoutId = window.setTimeout(() => {
-      upsertSnackbar({ id, isOpen: false, timeoutId: null, children });
+      upsertToast({ id, isOpen: false, timeoutId: null, children });
     }, 3000);
 
-    const newItem: Snackbar = {
+    const newItem: Toast = {
       id,
       children,
       isOpen: true,
       timeoutId,
     };
 
-    upsertSnackbar(newItem);
+    upsertToast(newItem);
   };
 
   return {
-    snackbars,
-    createSnackbar,
-    removeSnackbar,
+    toasts,
+    createToast,
+    removeToast,
   };
 };
 

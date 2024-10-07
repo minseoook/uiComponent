@@ -1,46 +1,52 @@
 import { createPortal } from "react-dom";
-import { useSnackbar } from "../store/snackbarStore";
+import { useToast } from "../store/snackbarStore";
 import styled from "./toast.module.css";
-import { useEffect } from "react";
-import useToast from "../components/Toast/useToast";
+import { useEffect, useRef } from "react";
+import useToast2 from "../components/Toast/useToast";
 
 const ToastPage = () => {
-  const { snackbars, createSnackbar } = useSnackbar();
-  const { snackbars: s2, createSnackbar: c2, removeSnackbar: r2 } = useToast();
+  const { toasts, createToast } = useToast();
+  const { toasts: t2, createToast: ct2, removeToast: rt2 } = useToast2();
 
   const handleClick = () => {
-    createSnackbar("1", <div>토스트 입니다</div>);
+    createToast("1", <div>토스트 입니다</div>);
   };
   const handleClick2 = () => {
-    createSnackbar("2", <div>토스트2 입니다</div>);
+    createToast("2", <div>토스트2 입니다</div>);
   };
   const handleClick3 = () => {
-    c2(<div>토스트3 입니다</div>);
+    ct2(<div>토스트3 입니다</div>);
   };
 
-  console.log(s2);
   return (
     <div className={styled.container}>
       <div className={styled.item}>
         <h3 className={styled.header}>
-          구현방법 : 탭의 id를 상태로 관리하여 상태마다 아래 폼을 달리 렌더링함
+          구현방법 : 토스트를 구현하는데 필요한 상태, 함수를 주스탄드에서 구현후
+          전역상태로써 관리
         </h3>
         <button onClick={handleClick}>토스트 오픈</button>
         <button onClick={handleClick2}>토스트2 오픈</button>
-        <button onClick={handleClick3}>토스트3 오픈</button>
-        {snackbars.map((snackbar, index) => (
-          <ToastItem key={snackbar.id} {...snackbar} index={index} />
-        ))}
-        {s2.map((snackbar, index) => (
-          <ToastItem
-            key={snackbar.id}
-            {...snackbar}
-            index={index}
-            another
-            r2={r2}
-          />
-        ))}
       </div>
+      <div className={styled.item}>
+        <h3 className={styled.header}>
+          구현방법 : 토스트를 구현하는데 필요한 상태, 함수를 커스텀훅으로 구현후
+          지역상태로써 관리
+        </h3>
+        <button onClick={handleClick3}>토스트3 오픈</button>
+      </div>
+      {toasts.map((snackbar, index) => (
+        <ToastItem key={snackbar.id} {...snackbar} index={index} />
+      ))}
+      {t2.map((snackbar, index) => (
+        <ToastItem
+          key={snackbar.id}
+          {...snackbar}
+          index={index}
+          another
+          r2={rt2}
+        />
+      ))}
     </div>
   );
 };
@@ -60,30 +66,32 @@ export const ToastItem = ({
   another?: boolean;
   r2?: (id: string) => void;
 }) => {
-  const { removeSnackbar } = useSnackbar();
+  const toastRef = useRef<HTMLDivElement>(null);
+  const { removeToast } = useToast();
 
   useEffect(() => {
-    const element = document.getElementById(`snackbar-${id}`);
-
     const handleAnimationEnd = () => {
       if (!isOpen) {
-        removeSnackbar(id);
+        removeToast(id);
         if (r2) {
           r2(id);
         }
       }
     };
 
-    element?.addEventListener("transitionend", handleAnimationEnd);
+    toastRef.current?.addEventListener("transitionend", handleAnimationEnd);
 
     return () => {
-      element?.removeEventListener("transitionend", handleAnimationEnd);
+      toastRef.current?.removeEventListener(
+        "transitionend",
+        handleAnimationEnd
+      );
     };
-  }, [isOpen, id, removeSnackbar, r2]);
+  }, [isOpen, id, removeToast, r2]);
 
   return createPortal(
     <div
-      id={`snackbar-${id}`}
+      ref={toastRef}
       className={`${styled.snackbar} ${isOpen ? styled.open : styled.close}`}
       style={{
         bottom: `${index * 90 + 20}px`,

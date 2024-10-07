@@ -1,58 +1,58 @@
 import { ReactNode } from "react";
 import { create } from "zustand";
 
-export type Snackbar = {
+export type Toast = {
   id: string;
   children: ReactNode;
   isOpen: boolean;
   timeoutId: number | null;
 };
 
-type SnackbarStore = {
-  snackbars: Snackbar[];
-  upsertSnackbar: (newSnackbar: Snackbar) => void;
-  removeSnackbar: (id: string) => void;
+type ToastStore = {
+  toasts: Toast[];
+  upsertToast: (newToast: Toast) => void;
+  removeToast: (id: string) => void;
 };
 
-const useSnackbarStore = create<SnackbarStore>((set) => ({
-  snackbars: [],
-  upsertSnackbar: (newSnackbar) =>
+const useToastStore = create<ToastStore>((set) => ({
+  toasts: [],
+  upsertToast: (newToast) =>
     set((state) => {
-      const targetIndex = state.snackbars.findIndex(
-        (item) => item.id === newSnackbar.id
+      const targetIndex = state.toasts.findIndex(
+        (item) => item.id === newToast.id
       );
       if (targetIndex > -1) {
-        const updatedSnackbars = state.snackbars.map((item, index) =>
-          index === targetIndex ? { ...item, ...newSnackbar } : item
+        const updatedToasts = state.toasts.map((item, index) =>
+          index === targetIndex ? { ...item, ...newToast } : item
         );
-        return { snackbars: updatedSnackbars };
+        return { toasts: updatedToasts };
       }
-      return { snackbars: [...state.snackbars, newSnackbar] };
+      return { toasts: [...state.toasts, newToast] };
     }),
-  removeSnackbar: (id) =>
+  removeToast: (id) =>
     set((state) => ({
-      snackbars: state.snackbars.filter((item) => item.id !== id),
+      toasts: state.toasts.filter((item) => item.id !== id),
     })),
 }));
 
-export const useSnackbar = () => {
-  const { snackbars, upsertSnackbar, removeSnackbar } = useSnackbarStore();
+export const useToast = () => {
+  const { toasts, upsertToast, removeToast } = useToastStore();
 
-  const createSnackbar = (id: string, children: ReactNode) => {
-    const newItem: Snackbar = {
+  const createToast = (id: string, children: ReactNode) => {
+    const newItem: Toast = {
       id,
       children,
       isOpen: true,
       timeoutId: window.setTimeout(() => {
-        upsertSnackbar({ id, isOpen: false, timeoutId: null, children });
+        upsertToast({ id, isOpen: false, timeoutId: null, children });
       }, 3000),
     };
-    upsertSnackbar(newItem);
+    upsertToast(newItem);
   };
 
   return {
-    snackbars,
-    createSnackbar,
-    removeSnackbar,
+    toasts,
+    createToast,
+    removeToast,
   };
 };

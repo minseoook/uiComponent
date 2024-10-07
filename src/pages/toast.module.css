@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 40px;
 }
 
 .item {
@@ -28,7 +29,6 @@ button {
   margin-bottom: 10px;
 }
 
-/* 토스트 스타일 */
 .snackbar {
   position: fixed;
   right: 20px;
@@ -47,19 +47,16 @@ button {
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* 토스트 열림 애니메이션 */
 .open {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* 토스트 닫힘 애니메이션 */
 .close {
   opacity: 0;
   transform: translateY(100%);
 }
 
-/* Toast 메시지 */
 .snackbar div {
   padding: 10px 0;
   font-size: 0.9rem;
