@@ -1,6 +1,5 @@
 import { useState, useCallback } from "react";
 
-// useInfiniteScroll 커스텀 Hook
 const useInfiniteScroll = (initialImages: string[]) => {
   const [images, setImages] = useState<string[]>(initialImages);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -8,7 +7,7 @@ const useInfiniteScroll = (initialImages: string[]) => {
   const fetchNextPage = useCallback(() => {
     setIsLoading(true);
     const newImages = Array.from(
-      { length: 20 },
+      { length: 12 },
       (_, index) =>
         `https://picsum.photos/200/300?random=${images.length + index}`
     );

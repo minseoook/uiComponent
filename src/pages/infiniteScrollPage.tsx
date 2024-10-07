@@ -14,6 +14,10 @@ const InfiniteScrollPage = () => {
   const { ref, isIntersecting } = useIntersectionObserver();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (isIntersecting && !isLoading) {
       fetchNextPage();
     }
