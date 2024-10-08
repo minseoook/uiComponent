@@ -1,16 +1,41 @@
+.openButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
 .loginForm {
   width: 400px;
-  height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 15px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
 }
 
 .loginInput {
   width: 100%;
-  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
 
 .loginButton {
   background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 20px;
+  font-size: 1em;
+  cursor: pointer;
 }

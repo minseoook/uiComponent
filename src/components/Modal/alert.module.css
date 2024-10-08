@@ -1,0 +1,34 @@
+.button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+}
+.message {
+  margin-bottom: 10px; /* Spacing for clarity */
+}
+
+.additionalInfo {
+  font-weight: normal; /* Normal weight for additional info */
+  color: #444; /* Darker text color for readability */
+}
+
+.warning {
+  font-weight: bold; /* Bold text for warnings */
+  color: #d9534f; /* Red color for warning emphasis */
+  margin-top: 10px; /* Margin for separation */
+}
+
+.button {
+  background-color: #007bff; /* Primary color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em; /* Consistent font size with modal content */
+  transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth transition */
+}

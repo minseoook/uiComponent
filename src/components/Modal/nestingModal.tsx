@@ -1,9 +1,8 @@
-import React from "react";
 import Modal from "./Modal";
 import useModal from "./useModal";
 import styles from "./nest.module.css";
 
-const NestedModal: React.FC = () => {
+const NestedModal = () => {
   const outerModal = useModal();
   const innerModal = useModal();
 
@@ -18,6 +17,11 @@ const NestedModal: React.FC = () => {
           <Modal.Content>
             <div className={styles.modalContent}>
               <p>이것은 외부 모달입니다.</p>
+              <p>
+                추가적인 정보를 제공합니다. 이 모달은 다른 모달을 열 수 있는
+                기능을 가지고 있습니다. 아래 버튼을 클릭하여 내부 모달을
+                열어보세요.
+              </p>
             </div>
           </Modal.Content>
           <Modal.Footer>
@@ -25,7 +29,10 @@ const NestedModal: React.FC = () => {
               <button onClick={innerModal.openModal} className={styles.button}>
                 내부 모달 열기
               </button>
-              <button onClick={outerModal.closeModal} className={styles.button}>
+              <button
+                onClick={outerModal.closeModal}
+                className={styles.closeAllButton}
+              >
                 닫기
               </button>
             </div>
@@ -39,6 +46,10 @@ const NestedModal: React.FC = () => {
           <Modal.Content>
             <div className={styles.modalContent2}>
               <p>이것은 내부 모달입니다.</p>
+              <p>
+                이 모달은 외부 모달에서 열 수 있으며, 모든 모달을 닫는 옵션도
+                제공합니다.
+              </p>
             </div>
           </Modal.Content>
           <Modal.Footer>

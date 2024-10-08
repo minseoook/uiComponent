@@ -11,27 +11,30 @@ const LoginModal = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    console.log({ username, password });
+    console.log({ username, password, email });
     setUsername("");
     setPassword("");
+    setEmail("");
     closeModal();
   };
 
   return (
     <>
-      <button onClick={openModal}>로그인</button>
+      <button onClick={openModal} className={styles.openButton}>
+        로그인
+      </button>
       <Modal open={open} close={closeModal} outsideClick>
         <Modal.Header title="로그인" close={closeModal} />
         <Modal.Content>
           <form onSubmit={handleSubmit} className={styles.loginForm}>
-            <div>
+            <div className={styles.inputGroup}>
               <input
                 type="text"
                 placeholder="사용자 이름"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 className={styles.loginInput}
+                required
               />
 
               <input
@@ -40,13 +43,16 @@ const LoginModal = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className={styles.loginInput}
+                required
               />
+
               <input
                 type="password"
                 placeholder="비밀번호"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className={styles.loginInput}
+                required
               />
             </div>
 
