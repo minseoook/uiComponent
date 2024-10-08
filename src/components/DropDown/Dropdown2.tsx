@@ -49,7 +49,7 @@ export const DropdownItem = ({
   selectItem: (index: number) => void;
 }) => (
   <li className={styles.item} onClick={() => selectItem(index)}>
-    <button>{item.text}</button>
+    <button className={styles.text}>{item.text}</button>
   </li>
 );
 export const DropdownTrigger = ({
@@ -60,7 +60,9 @@ export const DropdownTrigger = ({
   toggle: () => void;
 }) => (
   <button className={styles.buttonToggle} onClick={toggle}>
-    <span>{selectedItem ? selectedItem.text : "항목을 선택하세요"}</span>
+    <span className={styles.text}>
+      {selectedItem ? selectedItem.text : "항목을 선택하세요"}
+    </span>
   </button>
 );
 export const DropdownContainer = ({
@@ -86,7 +88,7 @@ export const DropdownContainer = ({
     };
     window.addEventListener("click", handleClickOutside);
     return () => window.removeEventListener("click", handleClickOutside);
-  }, [handleKeyDown]);
+  }, [handleKeyDown, isOpen]);
 
   return (
     <div

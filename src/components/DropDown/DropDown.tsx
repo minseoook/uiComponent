@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { ReactNode, useEffect, useRef } from "react";
-import styles from "./Dropdown.module.css";
+import styles from "./dropdown.module.css";
 import { data } from "./data";
 
 type DropdownState = {
@@ -53,7 +53,7 @@ const DropdownItem = ({
   return (
     <li className={styles.item}>
       <button onClick={handleClick}>
-        <span>{item.text}</span>
+        <span className={styles.text}>{item.text}</span>
       </button>
     </li>
   );

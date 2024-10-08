@@ -27,14 +27,7 @@ export const DropdownList = ({
 }: {
   children: React.ReactNode;
   lists: DataType[];
-}) => (
-  <ul
-    className={styles.dropdownList}
-    style={{ display: lists.length > 0 ? "block" : "none" }}
-  >
-    {children}
-  </ul>
-);
+}) => lists.length > 0 && <ul className={styles.dropdownList}>{children}</ul>;
 export const DropdownItem = ({
   item,
   selectItem,
