@@ -66,6 +66,7 @@ export const DropdownTrigger = ({
       className={styles.buttonToggle}
       value={valuedebounce}
       onChange={handleChange}
+      placeholder="a를 입력해 보세요"
     />
   );
 };
