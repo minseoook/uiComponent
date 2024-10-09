@@ -47,12 +47,15 @@ const AccordianPage = () => {
     <div className={styled.container}>
       <MarkdownRenderer content={markdown} />
       <div className={styled.item}>
+        <h2 className={styled.title}>아코디언1</h2>
         <Accordian1 />
       </div>
       <div className={styled.item}>
+        <h2 className={styled.title}>아코디언2</h2>
         <Accordian2 />
       </div>
       <div className={styled.item}>
+        <h2 className={styled.title}>아코디언3</h2>
         <Accordian3 />
       </div>
     </div>

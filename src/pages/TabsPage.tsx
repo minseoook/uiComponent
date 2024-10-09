@@ -40,9 +40,11 @@ const TabsPage = () => {
     <div className={styled.container}>
       <MarkdownRenderer content={markdown} />
       <div className={styled.item}>
+        <h2 className={styled.title}>탭1</h2>
         <Tab1 />
       </div>
       <div className={styled.item}>
+        <h2 className={styled.title}>탭2</h2>
         <Tab2 />
       </div>
     </div>
