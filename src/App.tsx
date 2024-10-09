@@ -36,82 +36,12 @@ const App = () => {
       ],
     },
     {
-      path: "/11",
+      path: "/7",
       element: <Layout />,
       children: [
         {
-          path: "/11",
+          path: "/7",
           element: <TabsPage />,
-        },
-      ],
-    },
-    {
-      path: "/13",
-      element: <Layout />,
-      children: [
-        {
-          path: "/13",
-          element: <TooltipPage />,
-        },
-      ],
-    },
-    {
-      path: "/3",
-      element: <Layout />,
-      children: [
-        {
-          path: "/3",
-          element: <LazyLoadingPage />,
-        },
-      ],
-    },
-    {
-      path: "/6",
-      element: <Layout />,
-      children: [
-        {
-          path: "/6",
-          element: <InfiniteScrollPage />,
-        },
-      ],
-    },
-    {
-      path: "/12",
-      element: <Layout />,
-      children: [
-        {
-          path: "/12",
-          element: <ToastPage />,
-        },
-      ],
-    },
-    {
-      path: "/14",
-      element: <Layout />,
-      children: [
-        {
-          path: "/14",
-          element: <PopoverPage />,
-        },
-      ],
-    },
-    {
-      path: "/10",
-      element: <Layout />,
-      children: [
-        {
-          path: "/10",
-          element: <SlidePage />,
-        },
-      ],
-    },
-    {
-      path: "/15",
-      element: <Layout />,
-      children: [
-        {
-          path: "/15",
-          element: <DropdownPage />,
         },
       ],
     },
@@ -121,7 +51,67 @@ const App = () => {
       children: [
         {
           path: "/9",
-          element: <AutoCompletePage />,
+          element: <TooltipPage />,
+        },
+      ],
+    },
+    {
+      path: "/2",
+      element: <Layout />,
+      children: [
+        {
+          path: "/2",
+          element: <LazyLoadingPage />,
+        },
+      ],
+    },
+    {
+      path: "/4",
+      element: <Layout />,
+      children: [
+        {
+          path: "/4",
+          element: <InfiniteScrollPage />,
+        },
+      ],
+    },
+    {
+      path: "/8",
+      element: <Layout />,
+      children: [
+        {
+          path: "/8",
+          element: <ToastPage />,
+        },
+      ],
+    },
+    {
+      path: "/10",
+      element: <Layout />,
+      children: [
+        {
+          path: "/10",
+          element: <PopoverPage />,
+        },
+      ],
+    },
+    {
+      path: "/6",
+      element: <Layout />,
+      children: [
+        {
+          path: "/6",
+          element: <SlidePage />,
+        },
+      ],
+    },
+    {
+      path: "/11",
+      element: <Layout />,
+      children: [
+        {
+          path: "/11",
+          element: <DropdownPage />,
         },
       ],
     },
@@ -131,6 +121,16 @@ const App = () => {
       children: [
         {
           path: "/5",
+          element: <AutoCompletePage />,
+        },
+      ],
+    },
+    {
+      path: "/3",
+      element: <Layout />,
+      children: [
+        {
+          path: "/3",
           element: <ModalPage />,
         },
       ],

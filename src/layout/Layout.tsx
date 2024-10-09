@@ -1,5 +1,6 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import styled from "./index.module.css";
+import ScrollToTop from "../components/ScrollTop";
 const Layout = () => {
   const navigate = useNavigate();
   return (
@@ -16,6 +17,7 @@ const Layout = () => {
       <main className={styled.main}>
         <Outlet />
       </main>
+      <ScrollToTop />
     </div>
   );
 };
