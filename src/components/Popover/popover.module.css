@@ -8,8 +8,8 @@
 }
 .popoverContainer {
   position: absolute;
-  top: 100px; /* 버튼 아래에 위치 */
-  left: 200px; /* 중앙 정렬을 위해 */
+  top: 100%; /* 초기값으로 나중에 조정 */
+  left: 50%;
   transform: translateX(-50%);
   background-color: white;
   border-radius: 8px;
