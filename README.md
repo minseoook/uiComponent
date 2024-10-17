@@ -74,14 +74,4 @@
 ### 전역 상태와 지역 상태 관리
 - 전역 상태와 지역 상태를 상황에 맞게 적절히 구분하여 사용했습니다.
 
-## 기술 스택
-- React
-- JavaScript
-- CSS Modules
-- Intersection Observer API
 
-## 설치 및 실행 방법
-
-1. 이 저장소를 클론합니다.
-   ```bash
-   git clone https://github.com/minseoook/ui-component-minseok.git
